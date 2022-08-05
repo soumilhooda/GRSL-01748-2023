@@ -2,7 +2,8 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras.layers import Dense
+from keras.layers import Dense
+from keras.models import Sequential
 from utils.default import Accuracy 
 from collections import Counter
 import math
@@ -10,12 +11,11 @@ from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def ANN(activationstring, trainDATA, trainTARGET_Encoded, testDATA, trainTARGET_NonEncoded, testTarget_NonEncoded):
-
-    layer = Dense(500, activation=activationstring, input_dim=4)
-    layer = Dense(250, activation=activationstring)(layer)
-    output = Dense(17, activation='softmax')(layer)
-    model = keras.Model(inputs=input, outputs=output, name="ANN")
+def ANN(trainDATA, trainTARGET_Encoded, testDATA, trainTARGET_NonEncoded, testTarget_NonEncoded):
+    model = Sequential()
+    model.add(Dense(500, activation='relu', input_dim=4))
+    model.add(Dense(250, activation='relu'))
+    model.add(Dense(17, activation='softmax'))
 
     opt = keras.optimizers.Adam(learning_rate=0.005)
     model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['mae','mse'])
