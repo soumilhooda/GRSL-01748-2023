@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from data.loader import MergedData
 from utils.default import Normaliser, TargetEncoder
-from models.models import ANN, KNN
+from models.models import ANN
 
 
 # ---------- IMPORTS ----------------
@@ -35,5 +35,5 @@ trainTARGET_Encoded = TargetEncoder(trainTARGET)
 Un-Comment whatever model is to be run.
 """
 
-ANN('relu',  trainDATA, trainTARGET_Encoded, testDATA, trainTARGET_NonEncoded, testTarget_NonEncoded) # Specify activation needed for Dense layers.
+ANN( trainDATA, trainTARGET_Encoded, testDATA, trainTARGET_NonEncoded, testTarget_NonEncoded) # Specify activation needed for Dense layers.
 
