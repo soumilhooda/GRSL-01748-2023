@@ -13,14 +13,14 @@ import matplotlib.pyplot as plt
 
 def ANN(trainDATA, trainTARGET_Encoded, testDATA, trainTARGET_NonEncoded, testTarget_NonEncoded):
     model = Sequential()
-    model.add(Dense(500, activation='relu', input_dim=4))
-    model.add(Dense(250, activation='relu'))
+    model.add(Dense(500, activation='sigmoid', input_dim=4))
+    model.add(Dense(250, activation='sigmoid'))
     model.add(Dense(17, activation='softmax'))
 
     opt = keras.optimizers.Adam(learning_rate=0.005)
     model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['mae','mse'])
 
-    history = model.fit(trainDATA, trainTARGET_Encoded, batch_size = 100, epochs=100, validation_split=0.05)
+    history = model.fit(trainDATA, trainTARGET_Encoded, batch_size = 50, epochs=500, validation_split=0.05)
     predictions_tr = model.predict(trainDATA)
     predictions_te = model.predict(testDATA)
     predictions_tr = np.argmax(predictions_tr, axis = 1)

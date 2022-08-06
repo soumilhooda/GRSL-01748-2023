@@ -35,5 +35,5 @@ trainTARGET_Encoded = TargetEncoder(trainTARGET)
 Un-Comment whatever model is to be run.
 """
 
-ANN( trainDATA, trainTARGET_Encoded, testDATA, trainTARGET_NonEncoded, testTarget_NonEncoded) # Specify activation needed for Dense layers.
+ANN(trainDATA, trainTARGET_Encoded, testDATA, trainTARGET_NonEncoded, testTarget_NonEncoded) # Specify activation needed for Dense layers.
 

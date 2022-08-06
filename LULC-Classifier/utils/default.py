@@ -9,13 +9,13 @@ import math
 # ---------- UTILITIES ----------------
 
 def Normaliser(data):
-    return MinMaxScaler(data)
+    return MinMaxScaler().fit_transform(data)
 
 def TargetEncoder(target):
     """
     Slow but needed as categories are changing across splits, need a better solution in the future.
     """
-    newtarget = np.empty((len(target),17))
+    newtarget = np.empty((1,17))
     for idx in range(len(target)):
         if target[idx] == 1:
             newtarget = np.append(newtarget,[[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]], axis=0)
@@ -51,6 +51,8 @@ def TargetEncoder(target):
             newtarget = np.append(newtarget,[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]], axis=0)
         elif target[idx] == 17:
             newtarget = np.append(newtarget,[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]], axis=0)
+    newtarget = np.delete(newtarget,0,0)
+    np.savetxt("trainTARGET_Encoded.txt",newtarget)
     return newtarget
 
 def Accuracy(data1, data2):
