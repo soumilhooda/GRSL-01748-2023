@@ -1,4 +1,4 @@
-# Estimation of Peri-Urban Area
+# Classification of Peri-Urban Areas using Remote Sensing data.
 
 Parameters used
 - NTL
