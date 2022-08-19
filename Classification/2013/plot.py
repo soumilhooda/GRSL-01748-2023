@@ -68,6 +68,7 @@ plt.colorbar()
 
 m.drawparallels(np.arange(17.10,17.80,0.05),labels=[True,False,False,False])
 m.drawmeridians(np.arange(78,78.9,0.1),labels=[0,0,0,1])
+plt.title("2013")
 plt.show()
 
 # fig, ax = plt.subplots(1, 1)

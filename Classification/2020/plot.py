@@ -12,9 +12,12 @@ import matplotlib.pyplot as plt
 # import shapefile
 import pandas as pd
 
-df = pd.read_excel('all_features_2020_clustered.xlsx')
+import os
 
-df.head()
+cwd = os.getcwd()  # Get the current working directory (cwd)
+files = os.listdir(cwd)  # Get all the files in that directory
+print("Files in %r: %s" % (cwd, files))
+df = pd.read_excel('all_features_2020_clustered.xlsx')
 
 print(df.head())
 
@@ -68,6 +71,7 @@ plt.colorbar()
 
 m.drawparallels(np.arange(17.10,17.80,0.05),labels=[True,False,False,False])
 m.drawmeridians(np.arange(78,78.9,0.1),labels=[0,0,0,1])
+plt.title('2020')
 plt.show()
 
 # fig, ax = plt.subplots(1, 1)
