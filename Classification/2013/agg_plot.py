@@ -17,6 +17,7 @@ print(df.head())
 X = df
 d = preprocessing.normalize(X)
 X = pd.DataFrame(X)
+print(X.head())
 clustering = AgglomerativeClustering(n_clusters=3)
 
 #predict the labels of clusters.

@@ -11,14 +11,19 @@ from sklearn import preprocessing
 
 df = pd.read_excel('all_features_2013.xlsx')
 
-print(df.head())
+# print(df.head())
+# print(df.describe())
+# init = np.array([[0,0,0,0],
+#                  []
+#                  [166.17,17,0.67,10000]],
+#                     np.float64)
 
 X = df
-X.drop(['Lat','Long','NDVI','LULC','Light'],axis=1,inplace=True)
+X.drop(['Lat','Long'],axis=1,inplace=True)
 d = preprocessing.normalize(X)
 X = pd.DataFrame(X)
 kmeans = KMeans(n_clusters= 3)
-
+# print(X.head())
 #predict the labels of clusters.
 label = kmeans.fit_predict(X)
  
