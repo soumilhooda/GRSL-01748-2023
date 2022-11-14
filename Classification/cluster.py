@@ -34,12 +34,14 @@ print(df_ndvi.shape[0])
 print(df_road.shape[0])
 print(df_lulc.tail())
 
-for i in range(9,10):
+for i in range(2,10):
  df = pd.DataFrame()
  df['Road'] = df_road[i][:].values
  df['Light'] = df_light[i][:].values
  df['LULC'] = df_lulc[i][:].values
  df['NDVI'] = df_ndvi[i][:].values
+ print(df.describe())
+ continue
  # df.fillna(0)
  X = df
  print(X.isnull().values.any())

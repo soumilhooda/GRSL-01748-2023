@@ -21,7 +21,11 @@ print(df.head())
 lat = df['Lat'][:].values
 lon = df['Long'][:].values
 road_val = df['Road'][:].values
-
+ndvi_val = df['NDVI'][:].values
+light_val = df['Light'][:].values
+road_val = road_val[road_val  != 0]
+light_val = light_val[light_val  != 0]
+print(type(road_val))
 # road_val[road_val!=0]
 
 print(df.describe())
@@ -33,8 +37,8 @@ plt.hist(road_val, **kwargs, color='g', label='Road')
 # plt.hist(x2, **kwargs, color='b', label='Fair')
 # plt.hist(x3, **kwargs, color='r', label='Good')
 plt.gca().set(title='Frequency Histogram',ylabel='Frequency')
-plt.xlabel('Road Density')
-plt.xlim(0,15600)
+plt.xlabel('Road density')
+plt.xlim(1,10000)
 plt.legend()
 plt.show()
 
@@ -42,9 +46,10 @@ plt.show()
 
 # fig2 = plt.figure()
 
-plt.hist(df['Light'][:].values, **kwargs, color='b', label='Light')
+plt.hist(light_val, **kwargs, color='b', label='Light')
 # plt.hist(x3, **kwargs, color='r', label='Good')
 plt.gca().set(title='Frequency Histogram', ylabel='Frequency')
 plt.xlabel('NTL')
+plt.xlim(1,40)
 plt.legend()
 plt.show()
