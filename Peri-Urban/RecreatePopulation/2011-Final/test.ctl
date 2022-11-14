@@ -1,0 +1,11 @@
+DSET  NTL-2011-30ArcSec.bin
+undef 2.14748e+09 
+options yrev
+TITLE Altimeter August
+XDEF  125 LINEAR             78.004165   0.008333 
+YDEF  115 LINEAR             16.937500   0.008333 
+ZDEF      1  LINEAR 1 1
+TDEF      1  LINEAR 01JUL0000 1DY
+VARS 1
+var 0 99 XXXXXXXX
+ENDVARS
